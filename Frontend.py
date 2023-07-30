@@ -15,7 +15,7 @@ def main():
         """
         <style>
             body {
-                background-color: #F9B2DC; /* Background color */
+                background-color: #f8f0ff; /* Updated background color */
                 margin: 0; /* Remove default margin */
                 padding: 0; /* Remove default padding */
                 display: flex;
@@ -75,11 +75,13 @@ def main():
                 font-size: 18px;
                 font-weight: bold;
                 margin-bottom: 10px;
+                color: yellow; /* Updated color to normal yellow */
             }
             .error-text {
                 font-size: 18px;
                 font-weight: bold;
                 margin-bottom: 10px;
+                color: #ff0000; /* Updated color to red */
             }
         </style>
         """,
