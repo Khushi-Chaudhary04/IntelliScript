@@ -102,7 +102,7 @@ def main():
     st.markdown("---")
 
     # Initialize input_option as "choose your input"
-    input_option = st.radio("Choose your input:", ("Enter a link", "Upload an audio file", "Download a video"))
+    input_option = st.radio("Choose your input:", ("Enter a link", "Upload an audio file", "Download a YouTube video"))
 
     if input_option == "Enter a link":
         # Display caution for link input
@@ -163,7 +163,8 @@ def main():
                 # Add code to download the transcript file
                 st.text("Download link here...")
 
-    elif input_option == "Download a video":
+    elif input_option == "Download a YouTube video":
+        st.write("## YouTube Video Downloader")
         # Display caution for link input
         st.markdown('<p class="caution-text">Please enter the full URL of the YouTube video.</p>', unsafe_allow_html=True)
         # Textbox for YouTube video link
@@ -205,5 +206,244 @@ def main():
                 else:
                     st.markdown('<p class="error-text">Please enter a valid YouTube video link and both start and end times.</p>', unsafe_allow_html=True)
 
+    # Summarization block
+    sumhead = """
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .header {
+            background-color: #2FACB6; /* Change this to the desired background color */
+            color: #FFFFFF;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 24px;
+            text-align: center;
+            animation: pulsating-glow 2s ease-in-out infinite; /* Add pulsating silver glow animation */
+        }
+        
+        .summarization-container {
+            background-color: #C0C0C0; /* Use a light silver color for the summarization container */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeInUp 1s;
+        }
+        
+        @keyframes pulsating-glow {
+            0% {
+                box-shadow: 0 0 10px rgba(192, 192, 192, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(192, 192, 192, 0.9);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(192, 192, 192, 0.7);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    """
+    st.markdown(sumhead, unsafe_allow_html=True)
+    # Header container
+    st.markdown("<div class='header-container'>", unsafe_allow_html=True)
+    st.markdown("<h1 class='header'>Summarization</h1>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+        
+    message_placeholder = st.empty()
+    message_placeholder.info("Available models - \n 1) Google T5 \n  2) DistilBart", icon="ℹ")
+    st.markdown("<br>", unsafe_allow_html=True)
+    model_choice = st.selectbox("Select a model to perform summarization", [1, 2], key="model_choice")
+
+    if model_choice == 1:  # Google T5 model selected
+        # Add code for Google T5 summarization
+        pass
+    elif model_choice == 2:  # DistilBart model selected
+        # Add code for DistilBart summarization
+        pass
+
+    # Add a button to perform summarization
+    summarize_button = st.button("Summarize")
+
+    # Perform summarization when the button is clicked
+    if summarize_button:
+        with st.spinner("Summarizing..."):
+            # Simulate summarization process delay
+            time.sleep(3)
+            # Assume the summary is generated and stored in the 'summary' variable
+            summary = ""
+            st.markdown("#### Summary:")
+            st.write(summary)
+
+    # Add code to handle download of the summary
+        summary_button = st.button("Download")
+
+    # Translation block
+    transhead = """
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .header {
+            background-color: #2FACB6; /* Change this to the desired background color */
+            color: #FFFFFF;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 24px;
+            text-align: center;
+            animation: pulsating-glow 2s ease-in-out infinite; /* Add pulsating silver glow animation */
+        }
+        
+        .summarization-container {
+            background-color: #C0C0C0; /* Use a light silver color for the summarization container */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeInUp 1s;
+        }
+        
+        @keyframes pulsating-glow {
+            0% {
+                box-shadow: 0 0 10px rgba(192, 192, 192, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(192, 192, 192, 0.9);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(192, 192, 192, 0.7);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    """
+    st.markdown(transhead, unsafe_allow_html=True)
+    # Header container
+    st.markdown("<div class='header-container'>", unsafe_allow_html=True)
+    st.markdown("<h1 class='header'>Translation</h1>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    selected_language = st.selectbox("Select a language:", ["English", "Hindi", "Telugu", "Other"])
+
+    # Button to perform translation
+    translate_button = st.button("Translate")
+
+    # Perform translation when the button is clicked
+    if translate_button:
+        with st.spinner("Translating..."):
+            # Simulate translation process delay
+            time.sleep(3)
+            # Assume the translation is generated and stored in the 'translation' variable
+            translation = f"Translated text in {selected_language}:\n\n"
+            st.markdown("#### Translation:")
+            st.write(translation)
+
+    # Add code to handle download of the translated text
+        translate_text_button = st.button("Download")
+    
+    # Audible summary block
+    audible_summary = """
+    <style>
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .header {
+            background-color: #2FACB6; /* Change this to the desired background color */
+            color: #FFFFFF;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 24px;
+            text-align: center;
+            animation: pulsating-glow 2s ease-in-out infinite; /* Add pulsating silver glow animation */
+        }
+        
+        .summarization-container {
+            background-color: #C0C0C0; /* Use a light silver color for the summarization container */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeInUp 1s;
+        }
+        
+        @keyframes pulsating-glow {
+            0% {
+                box-shadow: 0 0 10px rgba(192, 192, 192, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(192, 192, 192, 0.9);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(192, 192, 192, 0.7);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    """
+    st.markdown(audible_summary, unsafe_allow_html=True)
+    # Header container
+    st.markdown("<div class='header-container'>", unsafe_allow_html=True)
+    st.markdown("<h1 class='header'>Audible Summary</h1>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    selected_language = st.selectbox("Select a language for audible summary:", ["English", "Hindi", "Telugu", "Other"])
+
+    # Button to perform translation
+    audio_button = st.button("Generate Audio")
+
+    # generate audio when the button is clicked
+    if audio_button:
+        with st.spinner("Generating..."):
+            # Simulate audio summary process delay
+            time.sleep(3)
+            audio = f""
+            st.markdown("#### Audio:")
+            st.write(audio)
+    
+        # Add code to handle download of the generated audio
+        audio_download_button = st.button("Download Audio")
 if __name__ == "__main__":
     main()
