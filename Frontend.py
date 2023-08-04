@@ -9,7 +9,7 @@ def is_youtube_url(url):
 
 def main():
     # Set the page title and icon
-    st.set_page_config(page_title="Intelligent Transcript Summarizer", page_icon="📚")
+    st.set_page_config(page_title="IntelliScript", page_icon="📚")
 
     st.markdown(
         """
@@ -180,7 +180,7 @@ def main():
         if operation == "Full Video":
             # Button to download the video
             if st.button("Download Video"):
-                if youtube_link:
+                if is_youtube_url(youtube_link):
                     with st.spinner("Downloading video..."):
                         # Simulate download delay
                         time.sleep(3)
@@ -198,7 +198,7 @@ def main():
 
             # Button to generate clip
             if st.button("Generate Clip"):
-                if youtube_link and start_time and end_time:
+                if is_youtube_url(youtube_link) and start_time and end_time:
                     with st.spinner("Generating video clip..."):
                         # Simulate clip generation delay
                         time.sleep(3)
