@@ -173,6 +173,9 @@ html, body {
     height: 180%;
 }
 #video-summary-title {
+    margin-top: 600px;
+    width: 250px;
+    height: 100px;
     font-size: 24px;
     font-weight: bold;
     position: absolute;
@@ -307,19 +310,18 @@ html, body {
 .page2-container{
     height: 60vh;
     width: 100%;
-    /* background-color: red; */
+   
     display: flex;
     align-items: center;
     justify-content: space-between;
     /* padding: 0 5vw; */
 }
 .page2-left{
-    /* background-color: blue; */
     width: 40%;
 }
 .page2-right{
     /* background-color: blue; */
-    width: 24%;
+    width: 35%;
 }
 .page2-left h2{
     font-size: 4vw;
@@ -450,7 +452,7 @@ html, body {
 
 
 footer{
-    height: 90vh;
+    height: 99vh;
     width: 100%;
     background-color: #EDBFFF;
 }
