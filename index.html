@@ -51,30 +51,30 @@
         <div class="page3">
             <h1>What do you want to do today?</h1>
             
-            <!-- Container for centering buttons -->
+            <!-- Container for centering text boxes -->
             <section id="video-input">
                 <h2>Enter YouTube Video URL</h2>
                 <input type="text" id="video-url" placeholder="Enter YouTube Video URL">
                 <button id="transcribe-button">Transcribe</button>
+                
+                <textarea id="video-summary-title" placeholder="Video summary..."></textarea>
+                
+                <!-- New Translated Text textarea -->
+                <textarea id="translated-text" placeholder="Translated Text..."></textarea>
+                
+                <h3 id="video-transcription-title"></h3>
+                <textarea id="video-transcription" placeholder="Video transcription..."></textarea>
+                
+                <section id="translation">
+                    <h2>Translate to Desired Language</h2>
+                    <select id="language-select">
+                        <option value="English">English</option>
+                        <option value="Hindi">Spanish</option>
+                    </select>
+                    <button id="translate-button">Translate</button>
+                    <div id="translated-text"></div>
+                </section>
             </section>
-            
-            <textarea id="video-summary-title" placeholder="Video summary..."></textarea>
-            <h3 id="video-transcription-title"></h3>
-            <textarea id="video-transcription" placeholder="Video transcription..."></textarea>
-            <section id="translation">
-                <h2>Translate to Desired Language</h2>
-                <select id="language-select">
-                    <!-- Add your language options here -->
-                    <option value="English">English</option>
-                    <option value="Hindi">Spanish</option>
-                    <!-- Add more options as needed -->
-                </select>
-                <button id="translate-button">Translate</button>
-                <div id="translated-text"></div>
-            </section>
-            
-            
-            
           
         </div>
         
